@@ -1,0 +1,2 @@
+C:/Users/shima/AndroidStudioProjects/Tour-Guide-DEPI/android/app/.cxx/Debug/51216r5f/x86/CMakeFiles/edit_cache.dir
+C:/Users/shima/AndroidStudioProjects/Tour-Guide-DEPI/android/app/.cxx/Debug/51216r5f/x86/CMakeFiles/rebuild_cache.dir
