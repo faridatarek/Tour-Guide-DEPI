@@ -17,7 +17,6 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: centerTitle ?? true,
       actions: actions,
       backgroundColor: ColorManager.lightBeigeColor,
-      shadowColor: Colors.transparent,
       elevation: 0,
     );
   }

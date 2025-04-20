@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';
+import 'package:tour_guide/core/utils/text_styles.dart';
 
 class NotificationBodyScreen extends StatelessWidget {
   const NotificationBodyScreen({super.key});
@@ -46,6 +47,8 @@ class NotificationBodyScreen extends StatelessWidget {
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) => Container(
+                width: double.infinity,
+                height: 90.h,
                 decoration: BoxDecoration(
                   color: ColorManager.beigeColor,
                   borderRadius: BorderRadius.circular(16),
@@ -53,7 +56,8 @@ class NotificationBodyScreen extends StatelessWidget {
                 margin:
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 child: SizedBox(
-                  height: 80.h,
+                  height: 85.h,
+                  width: 120.w,
                   child: InkWell(
                     onTap: () {
                       //Navigator.pushNamed(context,AppRoutes.placeDetailsScreen);
@@ -75,15 +79,14 @@ class NotificationBodyScreen extends StatelessWidget {
                         ),
                       ),
                       title: Text(titles[index]),
+                      titleTextStyle: TextStyles.font18Brown2ExtraBold,
                       subtitle: Text(subtitles[index]),
+                      subtitleTextStyle: TextStyles.font10greyMedium,
                       trailing: Text(
                         traillings[index],
-                        style: TextStyle(
-                          color: traillings[index] != 'تمت الزيارة'
-                              ? ColorManager.darkOrangeColor
-                              : Colors.brown,
-                          fontSize: 16,
-                        ),
+                        style: traillings[index] != 'تمت الزيارة'
+                            ? TextStyles.font14DarkOrangeMedium
+                            : TextStyles.font14BrownMedium,
                       ),
                     ),
                   ),

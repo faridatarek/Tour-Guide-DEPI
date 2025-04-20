@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:tour_guide/core/helper/image_paths.dart';
 import 'package:tour_guide/core/helper/spacing.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';
+import 'package:tour_guide/core/utils/text_styles.dart';
 
 class PlaceListViewScreen extends StatelessWidget {
   PlaceListViewScreen({super.key});
@@ -70,13 +71,11 @@ class PlaceListViewScreen extends StatelessWidget {
                   Positioned(
                     bottom: 7,
                     right: 0,
-                    child: Text(
-                      titles[index],
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 30.sp,
-                          fontWeight: FontWeight.w100,
-                          fontFamily: 'Cairo'),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8.0, vertical: 8.0),
+                      child: Text(titles[index],
+                          style: TextStyles.font22whiteExtraBold),
                     ),
                   ),
                   Positioned(

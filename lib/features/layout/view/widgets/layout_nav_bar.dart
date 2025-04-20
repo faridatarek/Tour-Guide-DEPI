@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tour_guide/core/helper/image_paths.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';
+import 'package:tour_guide/core/utils/text_styles.dart';
 import 'package:tour_guide/features/notifications/view/notifications_screen.dart';
 import 'package:tour_guide/features/places/view/places_screen.dart';
 import 'bottom_nav_container.dart';
@@ -47,12 +48,10 @@ class _LayoutScreenState extends State<LayoutScreen> {
     return Scaffold(
       backgroundColor: ColorManager.lightBeigeColor,
       appBar: AppBar(
+        backgroundColor: ColorManager.lightBeigeColor,
         title: Text(
           labels[currentIndex],
-          style: const TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyles.font18LightBrown2ExtraBold,
         ),
         centerTitle: true,
         leading: const SizedBox.shrink(),

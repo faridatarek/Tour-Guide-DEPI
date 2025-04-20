@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tour_guide/core/helper/image_paths.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';
+import 'package:tour_guide/core/utils/text_styles.dart';
 import 'package:tour_guide/features/places/view/widgets/place_list_view_screen.dart';
 
 class AllPlacesScreen extends StatelessWidget {
@@ -23,7 +24,7 @@ class AllPlacesScreen extends StatelessWidget {
               ),
               title: Text(
                 "الأقصر  ",
-                style: TextStyle(fontSize: 36.sp),
+                style: TextStyles.font18Brown2ExtraBold,
               ),
               trailing: IconButton(
                 onPressed: () {},
