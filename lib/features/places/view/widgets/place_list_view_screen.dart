@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tour_guide/core/helper/image_paths.dart';
 import 'package:tour_guide/core/helper/spacing.dart';
+import 'package:tour_guide/core/routes/app_routes.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';
 import 'package:tour_guide/core/utils/text_styles.dart';
 
@@ -56,7 +57,7 @@ class PlaceListViewScreen extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () {
-                      //Navigator.pushNamed(context,AppRoutes.placeDetailsScreen);
+                      Navigator.pushNamed(context,AppRoutes.placeDetailsScreen);
                     },
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(16),

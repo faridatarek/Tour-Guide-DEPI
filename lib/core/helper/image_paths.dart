@@ -6,4 +6,6 @@ class ImagePaths {
   static const String notificationIconPath = 'assets/icons/notifications.svg';
   static const String moreIconPath = 'assets/icons/more.svg';
   static const String favNavIconPath = 'assets/icons/favorite-heart.svg';
+  static const String elKarnaklocation ="assets/icons/elkarnkLoCation.png";
+  static const String location ="assets/icons/location.png";
 }
