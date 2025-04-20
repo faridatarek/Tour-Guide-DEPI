@@ -4,7 +4,7 @@ class AppRoutes {
   static const String allPlacesScreen = '/allPlaces';
   static const String wishVisitScreen = '/wishVisit';
   static const String favouriteScreen = '/favourite';
-  static const String reminderNotificationScreen = '/reminderNotification';
+  static const String notificationsScreen = '/notifications';
   static const String moreScreen = '/more';
   static const String layoutScreen = '/layout';
 }

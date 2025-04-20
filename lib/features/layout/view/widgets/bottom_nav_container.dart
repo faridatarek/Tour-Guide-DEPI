@@ -17,7 +17,7 @@ class CustomCurvedNavigationBar extends StatelessWidget {
     required this.onTap,
     required this.icons,
     required this.labels,
-    this.activeColor = ColorManager.primaryColor,
+    this.activeColor = ColorManager.brownColor,
     this.inactiveColor = Colors.grey,
     this.backgroundColor = Colors.white,
   });

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tour_guide/core/helper/image_paths.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';
-
-import '../../../places/view/places_screen.dart';
+import 'package:tour_guide/features/notifications/view/notifications_screen.dart';
+import 'package:tour_guide/features/places/view/places_screen.dart';
 import 'bottom_nav_container.dart';
 
 class LayoutScreen extends StatefulWidget {
@@ -17,9 +17,12 @@ class _LayoutScreenState extends State<LayoutScreen> {
 
   final List<Widget> screens = [
     const AllPlacesScreen(),
+    const AllPlacesScreen(),
+    const AllPlacesScreen(),
     // const VisitsScreen(),
     // const FavoritesScreen(),
-    // const NotificationsScreen(),
+    const NotificationsScreen(),
+    const AllPlacesScreen(),
     // const MoreScreen(),
   ];
 
@@ -42,6 +45,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorManager.lightBeigeColor,
       appBar: AppBar(
         title: Text(
           labels[currentIndex],
@@ -62,7 +66,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
         onTap: (index) => setState(() => currentIndex = index),
         icons: icons,
         labels: labels,
-        activeColor: ColorManager.primaryColor,
+        activeColor: ColorManager.brown2Color,
         inactiveColor: Colors.grey[700]!,
       ),
     );
