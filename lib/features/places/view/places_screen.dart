@@ -12,32 +12,32 @@ class AllPlacesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.all(4.0),
-          child: Directionality(
-            textDirection: TextDirection.rtl,
-            child: ListTile(
-              leading: SizedBox(
-                width: 40.w,
-                height: 50.h,
-                child: Image.asset(ImagePaths.logoPath),
-              ),
-              title: Text(
-                "الأقصر  ",
-                style: TextStyles.font18Brown2ExtraBold,
-              ),
-              trailing: IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.filter_alt_sharp,
-                  size: 44.sp,
-                  color: ColorManager.primaryColor,
-                ),
+        Directionality(
+          textDirection: TextDirection.rtl,
+          child: ListTile(
+            leading: SizedBox(
+              width: 40.w,
+              height: 50.h,
+              child: Image.asset(ImagePaths.logoPath),
+            ),
+            title: Text(
+              "الأقصر  ",
+              style: TextStyles.font18Brown2ExtraBold,
+            ),
+            trailing: IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.filter_alt_sharp,
+                size: 44.sp,
+                color: ColorManager.primaryColor,
               ),
             ),
           ),
         ),
-        PlaceListViewScreen(),
+        SizedBox(
+          height: 50.h,
+        ),
+        Expanded(child: PlaceListViewScreen()),
       ],
     );
   }

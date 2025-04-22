@@ -50,7 +50,7 @@ class NotificationBodyScreen extends StatelessWidget {
                 width: double.infinity,
                 height: 90.h,
                 decoration: BoxDecoration(
-                  color: ColorManager.beigeColor,
+                  color: ColorManager.lightBeigeColor,
                   borderRadius: BorderRadius.circular(16),
                 ),
                 margin:

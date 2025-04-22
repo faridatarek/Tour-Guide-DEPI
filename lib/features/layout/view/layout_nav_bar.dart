@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tour_guide/core/helper/image_paths.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';
 import 'package:tour_guide/core/utils/text_styles.dart';
+import 'package:tour_guide/core/widgets/custom_app_bar.dart';
 import 'package:tour_guide/features/notifications/view/notifications_screen.dart';
 import 'package:tour_guide/features/places/view/places_screen.dart';
 
@@ -42,17 +43,12 @@ class _LayoutScreenState extends State<LayoutScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorManager.lightBeigeColor,
-      appBar: AppBar(
-        backgroundColor: ColorManager.lightBeigeColor,
-        title: Text(
-          labels[currentIndex],
-          style: TextStyles.font18LightBrown2ExtraBold,
-        ),
-        centerTitle: true,
-        leading: const SizedBox.shrink(),
-        elevation: 0,
+      backgroundColor: ColorManager.beigeColor,
+      appBar: CustomAppBar(
+        title: labels[currentIndex],
       ),
+      extendBody: true,
+      extendBodyBehindAppBar: true,
       body: IndexedStack(
         index: currentIndex,
         children: screens,
@@ -83,15 +79,15 @@ class _LayoutScreenState extends State<LayoutScreen> {
                       icons[index],
                       width: 29.w,
                       height: 28.h,
-                      color: ColorManager.brown2Color,
+                      color: ColorManager.brownColor,
                     ),
                     Text(labels[index], style: TextStyles.font16BrownBold),
                   ],
                 );
         }),
         height: 70.h,
-        backgroundColor: ColorManager.lightBeigeColor,
-        color: ColorManager.beigeColor,
+        backgroundColor: ColorManager.beigeColor,
+        color: ColorManager.primaryColor,
         buttonBackgroundColor: Colors.transparent,
         animationCurve: Curves.easeInOutCubicEmphasized,
         animationDuration: const Duration(milliseconds: 300),
