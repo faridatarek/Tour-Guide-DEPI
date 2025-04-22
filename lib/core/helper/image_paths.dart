@@ -8,4 +8,8 @@ class ImagePaths {
   static const String favNavIconPath = 'assets/icons/favorite-heart.svg';
   static const String elKarnaklocation ="assets/icons/elkarnkLoCation.png";
   static const String location ="assets/icons/location.png";
+  static const String bg_logo = "assets/icons/bg_logo.png";
+  static const String mainlogo = "assets/icons/kem_no_bg.png";
+  static const String appBar_bg = "assets/icons/appBar_bg.png";
+  static const String backArrow ="assets/icons/backArrow.png";
 }

@@ -38,6 +38,8 @@ dependencies:
   flutter_svg: ^2.0.17
   curved_navigation_bar: ^1.0.6
   convex_bottom_bar: ^3.2.0
+  animate_do:
+  circle_nav_bar:
 
 dev_dependencies:
   flutter_test:
