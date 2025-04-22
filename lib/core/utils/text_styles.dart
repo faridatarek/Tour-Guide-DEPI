@@ -44,6 +44,12 @@ class TextStyles {
     fontWeight: FontWeightHelper.bold,
     fontFamily: 'Cairo',
   );
+  static TextStyle font16BrownBold = TextStyle(
+    color: ColorManager.brownColor,
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.bold,
+    fontFamily: 'Cairo',
+  );
 //subtitle text style
   static TextStyle font10greyMedium = TextStyle(
     color: Colors.grey[700],

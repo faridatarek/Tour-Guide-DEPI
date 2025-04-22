@@ -34,7 +34,6 @@ class PlaceListViewScreen extends StatelessWidget {
     'معبد الملكة حتشبسوت',
     'معبد مدينة هابو ',
     'معبد الملك رمسيس ',
-    '',
   ];
   bool isSelected = true;
   @override
