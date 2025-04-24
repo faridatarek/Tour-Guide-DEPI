@@ -9,6 +9,11 @@ class TextStyles {
     fontWeight: FontWeightHelper.extraBold,
     color: ColorManager.brown2Color,
   );
+  static TextStyle font22Brown2ExtraBold = TextStyle(
+    fontSize: 22.sp,
+    fontWeight: FontWeightHelper.extraBold,
+    color: ColorManager.brownColor,
+  );
   static TextStyle font18LightBrown2ExtraBold = TextStyle(
     fontSize: 18.sp,
     fontWeight: FontWeightHelper.extraBold,

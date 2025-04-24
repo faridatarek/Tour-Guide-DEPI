@@ -1,8 +1,15 @@
 class ImagePaths {
   static const String logoPath = 'assets/icons/logo.png';
+  static const String homeIconPath = 'assets/icons/home.svg';
   static const String favIconPath = 'assets/icons/heart-tick.svg';
-  static const String savedIconPath = 'assets/icons/saved.png';
-  static const String notificationsIconPath = 'assets/icons/notification.png';
-  static const String logoKemit = 'assets/icons/logo.png';
-  static const String settingsIconPath = 'assets/icons/settings.png';
+  static const String savedIconPath = 'assets/icons/saved.svg';
+  static const String notificationIconPath = 'assets/icons/notifications.svg';
+  static const String moreIconPath = 'assets/icons/more.svg';
+  static const String favNavIconPath = 'assets/icons/favorite-heart.svg';
+  static const String elKarnaklocation ="assets/icons/elkarnkLoCation.png";
+  static const String location ="assets/icons/location.png";
+  static const String bg_logo = "assets/icons/bg_logo.png";
+  static const String mainlogo = "assets/icons/kem_no_bg.png";
+  static const String appBar_bg = "assets/icons/appBar_bg.png";
+  static const String backArrow ="assets/icons/backArrow.png";
 }
