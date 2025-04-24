@@ -8,14 +8,12 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-
-
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(411, 890),
+    return const ScreenUtilInit(
+      designSize: Size(411, 890),
       minTextAdapt: true,
       splitScreenMode: true,
       child: MaterialApp(
@@ -23,7 +21,6 @@ class MyApp extends StatelessWidget {
         title: 'Kemet guide app',
         onGenerateRoute: manageRoutes,
         initialRoute: AppRoutes.placeDetailsScreen,
-
       ),
     );
   }

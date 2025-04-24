@@ -4,12 +4,11 @@ import 'package:tour_guide/core/routes/route_not_found.dart';
 
 import '../../features/placeDetails/view/placeDetails_screen.dart';
 
-
 Route manageRoutes(RouteSettings settings) {
   switch (settings.name) {
     case AppRoutes.placeDetailsScreen:
       return MaterialPageRoute(
-        builder: (context) =>  PlaceDetailsScreen(),
+        builder: (context) => const PlaceDetailsScreen(),
       );
     default:
       return MaterialPageRoute(
