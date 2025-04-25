@@ -1,23 +1,22 @@
 import 'dart:async';
-
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:tour_guide/core/helper/image_paths.dart';
-import 'package:tour_guide/features/placeDetails/view/placeDetails_screen.dart';
+import 'package:tour_guide/core/routes/app_routes.dart';
 
-class LogoScreen extends StatefulWidget {
-  const LogoScreen({Key? key}) : super(key: key);
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
 
   @override
-  State<LogoScreen> createState() => _LogoScreenState();
+  State<SplashScreen> createState() => _LogoScreenState();
 }
 
-class _LogoScreenState extends State<LogoScreen> {
+class _LogoScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 6), () {
-      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>PlaceDetailsScreen()), (route) => false);
+    Timer(const Duration(seconds: 6), () {
+      Navigator.pushNamed(context, AppRoutes.layoutScreen);
     });
   }
 
@@ -29,12 +28,10 @@ class _LogoScreenState extends State<LogoScreen> {
           children: [
             Image.asset(ImagePaths.bg_logo),
             FadeInDown(
-                duration: Duration(seconds:3),
+                duration: const Duration(seconds: 3),
                 child: Image.asset(
                   ImagePaths.mainlogo,
                 )),
-
-
           ],
         ),
       ),

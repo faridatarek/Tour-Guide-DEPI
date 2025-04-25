@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tour_guide/core/routes/app_routes.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';
 import 'package:tour_guide/core/utils/text_styles.dart';
 
@@ -52,6 +53,13 @@ class NotificationBodyScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: ColorManager.lightBeigeColor,
                   borderRadius: BorderRadius.circular(16),
+                  boxShadow: [
+                    BoxShadow(
+                      color: ColorManager.brownColor.withOpacity(0.1),
+                      blurRadius: 3,
+                      spreadRadius: 1,
+                    ),
+                  ],
                 ),
                 margin:
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -60,7 +68,8 @@ class NotificationBodyScreen extends StatelessWidget {
                   width: 120.w,
                   child: InkWell(
                     onTap: () {
-                      //Navigator.pushNamed(context,AppRoutes.placeDetailsScreen);
+                      Navigator.pushNamed(
+                          context, AppRoutes.placeDetailsScreen);
                     },
                     child: ListTile(
                       leading: Container(
@@ -68,6 +77,7 @@ class NotificationBodyScreen extends StatelessWidget {
                         height: 60.h,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
+                          color: ColorManager.lightBeigeColor,
                         ),
                         clipBehavior: Clip.antiAliasWithSaveLayer,
                         child: ClipRRect(

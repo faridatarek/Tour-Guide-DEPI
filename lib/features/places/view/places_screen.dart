@@ -34,9 +34,6 @@ class AllPlacesScreen extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(
-          height: 50.h,
-        ),
         Expanded(child: PlaceListViewScreen()),
       ],
     );

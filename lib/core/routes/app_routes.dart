@@ -7,8 +7,9 @@ class AppRoutes {
   static const String notificationsScreen = '/notifications';
   static const String moreScreen = '/more';
   static const String layoutScreen = '/layout';
+  static const String settingsScreen = '/settings';
+  static const String layout = '/layoutScreen';
   //splash
-static const String LogoScreen ="/LogoScreen";
-static const String test ="/test";
-
+  static const String LogoScreen = "/LogoScreen";
+  static const String test = "/test";
 }

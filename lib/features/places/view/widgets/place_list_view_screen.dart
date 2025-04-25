@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lottie/lottie.dart';
 import 'package:tour_guide/core/helper/image_paths.dart';
 import 'package:tour_guide/core/helper/spacing.dart';
 import 'package:tour_guide/core/routes/app_routes.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';
 import 'package:tour_guide/core/utils/text_styles.dart';
 
-class PlaceListViewScreen extends StatelessWidget {
+class PlaceListViewScreen extends StatefulWidget {
   PlaceListViewScreen({super.key});
+
+  @override
+  State<PlaceListViewScreen> createState() => _PlaceListViewScreenState();
+}
+
+class _PlaceListViewScreenState extends State<PlaceListViewScreen> {
   final List<String> networkImagesUrl = const [
     'https://th.bing.com/th/id/R.3875c252f986a546da9fc82c0e33d26e?rik=yEhFTAiyjfzzeQ&pid=ImgRaw&r=0',
     'https://egyptiangeographic.com/uploads/files/egyptiangeographic.com_1605356917_1.jpg',
@@ -37,7 +44,9 @@ class PlaceListViewScreen extends StatelessWidget {
     'معبد الملك رمسيس ',
     '',
   ];
-  bool isSelected = true;
+
+  bool isSelected = false;
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -57,7 +66,8 @@ class PlaceListViewScreen extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () {
-                      Navigator.pushNamed(context,AppRoutes.placeDetailsScreen);
+                      Navigator.pushNamed(
+                          context, AppRoutes.placeDetailsScreen);
                     },
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(16),
@@ -84,16 +94,19 @@ class PlaceListViewScreen extends StatelessWidget {
                     left: 3,
                     child: IconButton(
                       onPressed: () {
-                        isSelected != isSelected;
+                        setState(() {
+                          isSelected != isSelected;
+                        });
                       },
-                      icon: SvgPicture.asset(
-                        ImagePaths.favIconPath,
-                        color: isSelected
-                            ? ColorManager.brown2Color
-                            : Colors.grey[300],
-                        height: 50.h,
-                        width: 50.w,
-                      ),
+                      icon: isSelected
+                          ? Lottie.asset("assets/lottie/addFav.json",
+                              width: 70.w, height: 70.h, animate: isSelected)
+                          : SvgPicture.asset(
+                              ImagePaths.favIconPath,
+                              color: Colors.grey[300],
+                              height: 50.h,
+                              width: 50.w,
+                            ),
                     ),
                   ),
                 ],

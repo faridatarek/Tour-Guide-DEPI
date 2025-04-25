@@ -1,6 +1,9 @@
 import 'package:flutter/widgets.dart';
 
+//عشان اسهل الاضافة من غير تعديل //تطبيق للمبدأ الاخير من السوليد=> extension
 extension Navigation on BuildContext {
+  //تستخدم في التنقل بين الشاشات بدون عدوة للشاشة السابقة
+
   Future<dynamic> pushNamed(String routeName, {Object? arguments}) {
     return Navigator.of(this).pushNamed(routeName, arguments: arguments);
   }
@@ -12,10 +15,10 @@ extension Navigation on BuildContext {
   }
 
   Future<dynamic> pushNamedAndRemoveUntil(
-      String routeName, {
-        Object? arguments,
-        required RoutePredicate predicate,
-      }) {
+    String routeName, {
+    Object? arguments,
+    required RoutePredicate predicate,
+  }) {
     return Navigator.of(
       this,
     ).pushNamedAndRemoveUntil(routeName, predicate, arguments: arguments);
