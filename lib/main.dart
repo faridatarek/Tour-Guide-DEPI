@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tour_guide/core/routes/app_routes.dart';
 import 'package:tour_guide/core/routes/router.dart';
+import 'package:tour_guide/features/homeScreen/auto_scrolling.dart';
+import 'package:tour_guide/features/homeScreen/famous_places.dart';
+import 'package:tour_guide/features/homeScreen/home_screen.dart';
+import 'package:tour_guide/features/homeScreen/promote_places.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,8 +16,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ScreenUtilInit(
-      designSize: Size(411, 890),
+    return ScreenUtilInit(
+      designSize: const Size(411, 890),
 
       minTextAdapt: true,
       splitScreenMode: true,
@@ -21,7 +25,9 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Kemet guide app',
         onGenerateRoute: manageRoutes,
-        initialRoute: AppRoutes.layoutScreen,
+        // initialRoute: AppRoutes.layoutScreen,
+        home: HomeScreen(),
+
       ),
     );
   }

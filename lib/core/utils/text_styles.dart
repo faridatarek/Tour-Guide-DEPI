@@ -8,16 +8,19 @@ class TextStyles {
     fontSize: 18.sp,
     fontWeight: FontWeightHelper.extraBold,
     color: ColorManager.brown2Color,
+    fontFamily: 'Cairo',
   );
   static TextStyle font22Brown2ExtraBold = TextStyle(
     fontSize: 22.sp,
     fontWeight: FontWeightHelper.extraBold,
     color: ColorManager.brownColor,
+    fontFamily: 'Cairo',
   );
   static TextStyle font18LightBrown2ExtraBold = TextStyle(
     fontSize: 18.sp,
     fontWeight: FontWeightHelper.extraBold,
     color: ColorManager.brownColor,
+    fontFamily: 'Cairo',
   );
   static TextStyle font14DarkOrangeBold = TextStyle(
     fontSize: 14.sp,
@@ -30,6 +33,14 @@ class TextStyles {
       fontSize: 22.sp,
       fontWeight: FontWeightHelper.extraBold,
       fontFamily: 'Cairo');
+
+  // new TextStyle for white text
+  static TextStyle font14whiteExtraBold = TextStyle(
+      color: Colors.white,
+      fontSize: 14.sp,
+      fontWeight: FontWeightHelper.extraBold,
+      fontFamily: 'Cairo');
+
 
   static TextStyle font14DarkOrangeMedium = TextStyle(
       color: ColorManager.darkOrangeColor,
