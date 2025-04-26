@@ -20,7 +20,7 @@ class Titles extends StatelessWidget {
           width: 35.w,
           height: 35.h,
         ),
-        Text(title, style: TextStyles.font22Brown2ExtraBold),
+        Text(title, style: TextStyles.font25Brown2ExtraBold),
       ],
     );
   }

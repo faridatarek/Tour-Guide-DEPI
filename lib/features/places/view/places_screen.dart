@@ -30,13 +30,13 @@ class AllPlacesScreen extends StatelessWidget {
                 ),
                 title: Text(
                   "الأقصر",
-                  style: TextStyles.font18Brown2ExtraBold,
+                  style: TextStyles.font18Brown2ExtraBold.copyWith(fontSize: 30),
                 ),
                 trailing: IconButton(
                   onPressed: () {},
                   icon: Icon(
                     Icons.filter_alt_sharp,
-                    size: 44.sp,
+                    size: 40.sp,
                     color: ColorManager.primaryColor,
                   ),
                 ),

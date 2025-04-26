@@ -60,7 +60,6 @@ class NotificationBodyScreen extends StatelessWidget {
                   width: 120.w,
                   child: InkWell(
                     onTap: () {
-                      //Navigator.pushNamed(context,AppRoutes.placeDetailsScreen);
                     },
                     child: ListTile(
                       leading: Container(

@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Kemet guide app',
         onGenerateRoute: manageRoutes,
-        initialRoute: AppRoutes.layoutScreen,
+        initialRoute: AppRoutes.LogoScreen,
       ),
     );
   }

@@ -26,7 +26,7 @@ class _SliderWidgetState extends State<SliderWidget> {
     return Column(
       children: [
         SizedBox(
-          height: 250.h,
+          height: 220.h,
           child: Stack(
             alignment: Alignment.bottomCenter,
             children: [

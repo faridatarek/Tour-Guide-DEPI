@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';
 import 'package:tour_guide/core/utils/text_styles.dart';
+import 'package:tour_guide/features/placeDetails/view/placeDetails_screen.dart';
 
 class NearestPlaces extends StatelessWidget {
   NearestPlaces({super.key});
@@ -17,7 +18,7 @@ class NearestPlaces extends StatelessWidget {
   final List<String> labels = [
     'معبد لأقصر',
     'معبد الكرنك',
-    'مسجد ابي حجاج',
+    'ابي حجاج',
     'تمثالا ممنون',
     'وادي الملوك',
 
@@ -40,7 +41,10 @@ class NearestPlaces extends StatelessWidget {
               itemCount: images.length,
               itemBuilder: (context, index) {
                 return InkWell(
-                  onTap: () {},
+                  onTap:() {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const PlaceDetailsScreen()));
+
+                  },
                   child: Stack(
                     alignment: Alignment.bottomRight,
                     children: [

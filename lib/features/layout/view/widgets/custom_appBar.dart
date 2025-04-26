@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tour_guide/core/helper/image_paths.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';
+import 'package:tour_guide/core/utils/text_styles.dart';
 
 class CustomAppbar extends StatelessWidget {
   final String? title;
@@ -36,11 +37,7 @@ class CustomAppbar extends StatelessWidget {
                   child: title != null
                       ? Text(
                     title!,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 25.sp,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: TextStyles.font20whiteExtraBold,
                     textAlign: TextAlign.center,
                   )
                       : SizedBox.shrink(),
