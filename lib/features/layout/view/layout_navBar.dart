@@ -6,6 +6,7 @@ import 'package:tour_guide/core/utils/color_manager.dart';
 import 'package:tour_guide/features/layout/view/widgets/custom_appBar.dart';
 import 'package:tour_guide/features/notifications/view/notifications_screen.dart';
 import 'package:tour_guide/features/places/view/places_screen.dart';
+import 'package:tour_guide/features/saved/view/saved.dart';
 
 class LayoutNavBar extends StatefulWidget {
   const LayoutNavBar({super.key});
@@ -18,7 +19,7 @@ class _LayoutNavBarState extends State<LayoutNavBar> {
   List<Widget> screens = [
     const AllPlacesScreen(),
     const NotificationsScreen(),
-    const AllPlacesScreen(),
+    const VisitsScreen(),
     const AllPlacesScreen(),
   ];
   int currentIndex = 3;
