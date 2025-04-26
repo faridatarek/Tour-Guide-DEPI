@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tour_guide/core/helper/image_paths.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';
+import 'package:tour_guide/features/home/view/home_screen.dart';
+import 'package:tour_guide/features/notifications/view/notifications_screen.dart';
 import 'package:tour_guide/features/places/view/places_screen.dart';
 
 class LayoutNavBar extends StatefulWidget {
@@ -14,10 +16,11 @@ class LayoutNavBar extends StatefulWidget {
 
 class _LayoutNavBarState extends State<LayoutNavBar> {
   List<Widget> PagesName = [
-    const AllPlacesScreen(),
+
     const AllPlacesScreen() ,
-    const AllPlacesScreen() ,
+    const NotificationsScreen() ,
     const  AllPlacesScreen(),
+    const HomeScreen(),
   ];
   int currentIndex = 3;
   @override
@@ -26,6 +29,7 @@ class _LayoutNavBarState extends State<LayoutNavBar> {
         bottomNavigationBar:
 
         CircleNavBar(
+
           iconCurve: Curves.bounceInOut,
 
 
@@ -99,16 +103,15 @@ class _LayoutNavBarState extends State<LayoutNavBar> {
           ),
 
           circleShadowColor: ColorManager.primaryColor,
-          shadowColor:  Colors.grey.shade400,
+
 
           elevation: 10,
           gradient: LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
+
             colors: [
 
-              Colors.white,
-              Colors.white70,
+              ColorManager.beigeColor.withOpacity(0.5),
+              ColorManager.primaryColor.withOpacity(0.5),
 
             ],
           ),

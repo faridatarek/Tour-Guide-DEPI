@@ -40,6 +40,8 @@ dependencies:
   convex_bottom_bar: ^3.2.0
   animate_do:
   circle_nav_bar:
+  carousel_slider:
+
 
 dev_dependencies:
   flutter_test:
