@@ -89,26 +89,6 @@ class _PlaceListViewScreenState extends State<PlaceListViewScreen> {
                           style: TextStyles.font22whiteExtraBold),
                     ),
                   ),
-                  Positioned(
-                    top: 3,
-                    left: 3,
-                    child: IconButton(
-                      onPressed: () {
-                        setState(() {
-                          isSelected != isSelected;
-                        });
-                      },
-                      icon: isSelected
-                          ? Lottie.asset("assets/lottie/addFav.json",
-                              width: 70.w, height: 70.h, animate: isSelected)
-                          : SvgPicture.asset(
-                              ImagePaths.favIconPath,
-                              color: Colors.grey[300],
-                              height: 50.h,
-                              width: 50.w,
-                            ),
-                    ),
-                  ),
                 ],
               ),
             );
