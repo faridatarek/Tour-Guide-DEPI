@@ -79,23 +79,7 @@ class PlaceListViewScreen extends StatelessWidget {
                           style: TextStyles.font22whiteExtraBold),
                     ),
                   ),
-                  Positioned(
-                    top: 3,
-                    left: 3,
-                    child: IconButton(
-                      onPressed: () {
-                        isSelected != isSelected;
-                      },
-                      icon: SvgPicture.asset(
-                        ImagePaths.favIconPath,
-                        color: isSelected
-                            ? ColorManager.brown2Color
-                            : Colors.grey[300],
-                        height: 50.h,
-                        width: 50.w,
-                      ),
-                    ),
-                  ),
+
                 ],
               ),
             );

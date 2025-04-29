@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tour_guide/core/helper/image_paths.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';
 import 'package:tour_guide/core/utils/text_styles.dart';
+import 'package:tour_guide/features/home/view/home_screen.dart';
 import 'package:tour_guide/features/notifications/view/notifications_screen.dart';
 import 'package:tour_guide/features/places/view/places_screen.dart';
 import 'bottom_nav_container.dart';
@@ -18,7 +19,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
 
   final List<Widget> screens = [
     const AllPlacesScreen(),
-    const AllPlacesScreen(),
+    const HomeScreen(),
     const AllPlacesScreen(),
     // const VisitsScreen(),
     // const FavoritesScreen(),

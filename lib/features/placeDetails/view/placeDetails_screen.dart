@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tour_guide/core/helper/image_paths.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';
+import 'package:tour_guide/core/utils/font_weight_helper.dart';
 import 'package:tour_guide/core/utils/text_styles.dart';
 
 import '../../../core/helper/spacing.dart';
@@ -76,9 +77,19 @@ class _PlaceDetailsScreenState extends State<PlaceDetailsScreen> {
                 Image.network("https://www.depthworld.com/wp-content/uploads/2019/10/karnak-temple.jpg")
                 ,Positioned(
                     bottom: 0,right: 0,
-                    child: Container(height: 50.h,width: 200.w,child: Center(child: Text("معبد الكرنك",style:TextStyles.font22whiteExtraBold
+                    child: Container(height: 50.h,width: 200.w,child: Center(child: Text("معبد الكرنك",style:TextStyles.font20whiteExtraBold
                       ,textDirection: TextDirection.rtl,)),
                       decoration: BoxDecoration(color: ColorManager.darkOrangeColor,borderRadius: BorderRadius.only(topRight: Radius.circular(12),topLeft: Radius.circular(12))),)),
+                Positioned(
+                  top: 40,right: 20,
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.pop(context);
+                    },
+                    child: Image.asset(ImagePaths.backArrow,height: 40.h,width: 40.w,),
+                  ),
+                )
+
 
               ],),
               Expanded(child:
@@ -92,16 +103,12 @@ class _PlaceDetailsScreenState extends State<PlaceDetailsScreen> {
                       children: [
                         RichText(
                           text: TextSpan(
-                            text: 'المحافظة: ',
-                            style: TextStyle(color: ColorManager.brownColor, fontSize:20.sp,fontWeight: FontWeight.w800),
+                            text: 'المحافظة : ',
+                           style:TextStyles.font18BrownBold,
                             children: <TextSpan>[
                               TextSpan(
                                 text: 'محافظة الأقصر',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize:18.sp,
-                                  color:ColorManager.brownColor,
-                                ),
+                                style: TextStyles.font18BrownMedium,
                               ),
                             ],
                           ),
@@ -109,16 +116,12 @@ class _PlaceDetailsScreenState extends State<PlaceDetailsScreen> {
                         SizedBox(height: 5.h,),
                         RichText(
                           text: TextSpan(
-                            text: 'المنطقة: ',
-                            style: TextStyle(color: ColorManager.brownColor, fontSize:20.sp,fontWeight: FontWeight.w800),
+                            text: 'المنطقة : ',
+                            style:TextStyles.font18BrownBold,
                             children: <TextSpan>[
                               TextSpan(
                                 text: 'الأقصر',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize:18.sp,
-                                  color:ColorManager.brownColor,
-                                ),
+                                style: TextStyles.font18BrownMedium,
                               ),
                             ],
                           ),
@@ -126,17 +129,13 @@ class _PlaceDetailsScreenState extends State<PlaceDetailsScreen> {
                         SizedBox(height: 5.h,),
                         RichText(textDirection: TextDirection.rtl,
                           text: TextSpan(
-                            text: 'العنوان: ',
-                            style: TextStyle(color: ColorManager.brownColor, fontSize:20.sp,fontWeight: FontWeight.w800),
+                            text: 'العنوان : ',
+                            style:TextStyles.font18BrownBold,
                             children: <TextSpan>[
                               TextSpan(
 
                                 text: 'يقع معبد الكرنك في غربي "طيبة" الي الشمال من معبد الأقصر بنحو ثلاث كيلو مترات',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize:18.sp,
-                                  color:ColorManager.brownColor,
-                                ),
+                                style: TextStyles.font18BrownMedium,
                               ),
                             ],
                           ),
@@ -144,16 +143,12 @@ class _PlaceDetailsScreenState extends State<PlaceDetailsScreen> {
                         SizedBox(height: 5.h,),
                         RichText(
                           text: TextSpan(
-                            text: 'متاح للزيارة: ',
-                            style: TextStyle(color: ColorManager.brownColor, fontSize:20.sp,fontWeight: FontWeight.w800),
+                            text: 'متاح للزيارة : ',
+                            style: TextStyles.font18BrownBold,
                             children: <TextSpan>[
                               TextSpan(
                                 text: 'نعم',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize:18.sp,
-                                  color:ColorManager.brownColor,
-                                ),
+                                style: TextStyles.font18BrownMedium,
                               ),
                             ],
                           ),
@@ -161,16 +156,12 @@ class _PlaceDetailsScreenState extends State<PlaceDetailsScreen> {
                         SizedBox(height: 5.h,),
                         RichText(
                           text: TextSpan(
-                            text: 'مواعيد الزيارة: ',
-                            style: TextStyle(color: ColorManager.brownColor, fontSize:20.sp,fontWeight: FontWeight.w800),
+                            text: 'مواعيد الزيارة : ',
+                            style: TextStyles.font18BrownBold,
                             children: <TextSpan>[
                               TextSpan(
                                 text: '7 صباحا - 8 مساءا',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize:18.sp,
-                                  color:ColorManager.brownColor,
-                                ),
+                                style: TextStyles.font18BrownMedium,
                               ),
                             ],
                           ),
@@ -178,16 +169,12 @@ class _PlaceDetailsScreenState extends State<PlaceDetailsScreen> {
                         SizedBox(height: 5.h,),
                         RichText(
                           text: TextSpan(
-                            text: 'سعر التذكرة: ',
-                            style: TextStyle(color: ColorManager.brownColor, fontSize:20.sp,fontWeight: FontWeight.w800),
+                            text: 'سعر التذكرة : ',
+                            style:TextStyles.font18BrownBold,
                             children: <TextSpan>[
                               TextSpan(
                                 text: 'مصري (30 جنية) - اجنبي (300 جنية)',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize:18.sp,
-                                  color:ColorManager.brownColor,
-                                ),
+                                style: TextStyles.font18BrownMedium,
                               ),
                             ],
                           ),
@@ -195,17 +182,13 @@ class _PlaceDetailsScreenState extends State<PlaceDetailsScreen> {
                         SizedBox(height: 5.h,),
                         RichText(textDirection: TextDirection.rtl,
                           text: TextSpan(
-                            text: 'تفاصيل المكان:\n ',
-                            style: TextStyle(color: ColorManager.brownColor, fontSize:20.sp,fontWeight: FontWeight.w800),
+                            text: 'تفاصيل المكان :\n ',
+                            style: TextStyles.font18BrownBold,
                             children: <TextSpan>[
                               TextSpan(
 
                                 text: 'معبد الكرنك يُعد من أعظم المعابد في تاريخ مصر القديمة، وهو أكبر مجمع ديني قديم عرفه العالم، بُني على مدار أكثر من 2000 سنة بمشاركة ملوك الفراعنة المتعاقبين، ويُعتبر مركزًا رئيسيًا لعبادة الإله آمون رع وزوجته موت وابنهما خونسو، وهم "يشكلون ثالوث طيبة المقدس"  ',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize:18.sp,
-                                  color:ColorManager.brownColor,
-                                ),
+                                style: TextStyles.font18BrownMedium,
                               ),
                             ],
                           ),
@@ -214,10 +197,10 @@ class _PlaceDetailsScreenState extends State<PlaceDetailsScreen> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            Text("الموقع علي الخريطة", style: TextStyles.font22Brown2ExtraBold),
+                            Text("الموقع علي الخريطة", style:TextStyles.font18BrownBold,),
                             SizedBox(
-                              width: 30.w,
-                              height: 30.h,
+                              width: 35.w,
+                              height: 35.h,
                               child: Image.asset(ImagePaths.logoPath),
                             ),
                           ],
@@ -245,10 +228,10 @@ class _PlaceDetailsScreenState extends State<PlaceDetailsScreen> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            Text("صور للمكان", style: TextStyles.font22Brown2ExtraBold),
+                            Text("صور للمكان", style: TextStyles.font18BrownBold,),
                             SizedBox(
-                              width: 30.w,
-                              height: 30.h,
+                              width: 35.w,
+                              height: 35.h,
                               child: Image.asset(ImagePaths.logoPath),
                             ),
                           ],
@@ -317,10 +300,13 @@ class _PlaceDetailsScreenState extends State<PlaceDetailsScreen> {
                               Text(
                                 "زياراتي",
                                 style: TextStyle(
+                                  fontSize: 26.sp,
+                                  fontWeight: FontWeightHelper.bold,
+                                  fontFamily: 'ArbFonts',
                                   color: selectedTab == "زياراتي"
                                       ? ColorManager.lightBeigeColor
                                       : ColorManager.darkOrangeColor,
-                                  fontSize: 25,
+
                                 ),
                               ),
                               SizedBox(width: 5.w),
@@ -352,12 +338,16 @@ class _PlaceDetailsScreenState extends State<PlaceDetailsScreen> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
+
                                 "مفضلة",
                                 style: TextStyle(
+                                  fontSize: 26.sp,
+                                  fontWeight: FontWeightHelper.bold,
+                                  fontFamily: 'ArbFonts',
                                   color: selectedTab == "مفضلة"
                                       ? ColorManager.lightBeigeColor
                                       : ColorManager.darkOrangeColor,
-                                  fontSize: 25,
+
                                 ),
                               ),
                               SizedBox(width: 5.w),

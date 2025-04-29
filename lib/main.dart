@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tour_guide/core/routes/app_routes.dart';
 import 'package:tour_guide/core/routes/router.dart';
 
+import 'features/layout/view/widgets/layout_nav_bar.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Kemet guide app',
         onGenerateRoute: manageRoutes,
-        initialRoute: AppRoutes.layoutScreen,
+        initialRoute: AppRoutes.LogoScreen,
       ),
     );
   }
