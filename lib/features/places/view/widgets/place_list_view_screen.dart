@@ -3,6 +3,7 @@ import 'package:tour_guide/core/helper/spacing.dart';
 import 'package:tour_guide/core/routes/app_routes.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';
 import 'package:tour_guide/core/utils/text_styles.dart';
+import 'package:tour_guide/features/placeDetails/view/placeDetails_screen.dart';
 
 class PlaceListViewScreen extends StatefulWidget {
   PlaceListViewScreen({super.key});
@@ -62,8 +63,20 @@ class _PlaceListViewScreenState extends State<PlaceListViewScreen> {
                 children: [
                   InkWell(
                     onTap: () {
-                      Navigator.pushNamed(
-                          context, AppRoutes.placeDetailsScreen);
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PlaceDetailsScreen(
+                                    name: titles[index],
+                                    image: networkImagesUrl[index],
+                                    governorate: 'Luxor',
+                                    area: 'Luxor',
+                                    address: 'Luxor',
+                                    visitingHours: '9:00 AM - 5:00 PM',
+                                    ticketPrice: '100 EGP',
+                                    description:
+                                        'This is a description of the place.',
+                                  )));
                     },
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(16),

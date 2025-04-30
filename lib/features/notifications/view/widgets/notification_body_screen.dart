@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tour_guide/core/routes/app_routes.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';
 import 'package:tour_guide/core/utils/text_styles.dart';
 
@@ -47,29 +46,20 @@ class NotificationBodyScreen extends StatelessWidget {
         slivers: [
           SliverList(
             delegate: SliverChildBuilderDelegate(
-              (context, index) => Container(
+                  (context, index) => Container(
                 width: double.infinity,
                 height: 90.h,
                 decoration: BoxDecoration(
-                  color: ColorManager.lightBeigeColor,
+                  color: ColorManager.beigeColor.withOpacity(0.3),
                   borderRadius: BorderRadius.circular(16),
-                  boxShadow: [
-                    BoxShadow(
-                      color: ColorManager.brownColor.withOpacity(0.1),
-                      blurRadius: 3,
-                      spreadRadius: 1,
-                    ),
-                  ],
                 ),
                 margin:
-                    const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 child: SizedBox(
                   height: 85.h,
                   width: 120.w,
                   child: InkWell(
                     onTap: () {
-                      Navigator.pushNamed(
-                          context, AppRoutes.placeDetailsScreen);
                     },
                     child: ListTile(
                       leading: Container(
@@ -77,7 +67,6 @@ class NotificationBodyScreen extends StatelessWidget {
                         height: 60.h,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          color: ColorManager.lightBeigeColor,
                         ),
                         clipBehavior: Clip.antiAliasWithSaveLayer,
                         child: ClipRRect(

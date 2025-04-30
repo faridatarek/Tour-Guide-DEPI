@@ -85,6 +85,19 @@ class TextStyles {
     fontWeight: FontWeightHelper.medium,
     fontFamily: 'ArbFonts',
   );
+  static TextStyle get font14GreenMedium => TextStyle(
+        fontSize: 14.sp,
+        color: Colors.green,
+        fontWeight: FontWeightHelper.medium,
+        fontFamily: 'ArbFonts',
+      );
+
+  static TextStyle get font14RedMedium => TextStyle(
+        fontSize: 14.sp,
+        color: Colors.red,
+        fontWeight: FontWeightHelper.medium,
+        fontFamily: 'ArbFonts',
+      );
 //subtitle text style
   static TextStyle font10greyMedium = TextStyle(
     color: Colors.grey[700],

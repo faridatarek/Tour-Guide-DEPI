@@ -1,5 +1,5 @@
 class AppRoutes {
-  static const String placeDetailsScreen = '/placeDetails';
+  // static const String placeDetailsScreen = '/placeDetails';
   //home
   static const String home = '/home';
 

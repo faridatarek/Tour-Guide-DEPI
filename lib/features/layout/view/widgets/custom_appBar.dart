@@ -14,7 +14,7 @@ class CustomAppbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
+        SizedBox(
           width: MediaQuery.of(context).size.width,
           height: 140.h,
           child: Image.asset(
@@ -38,7 +38,7 @@ class CustomAppbar extends StatelessWidget {
                           style: TextStyles.font20whiteExtraBold,
                           textAlign: TextAlign.center,
                         )
-                      : SizedBox.shrink(),
+                      : const SizedBox.shrink(),
                 ),
               ),
               if (onBackPressed != null)
@@ -77,6 +77,5 @@ class CustomAppbar extends StatelessWidget {
     );
   }
 
-  @override
   Size get preferredSize => Size.fromHeight(80.h);
 }

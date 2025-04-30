@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';
-import 'package:tour_guide/core/widgets/layout_navBar.dart';
-import 'package:tour_guide/features/placeDetails/view/placeDetails_screen.dart';
+import 'package:tour_guide/features/layout/view/layout_navBar.dart';
 
 class OnboardingScreen extends StatelessWidget {
   final String imagePath;
@@ -35,37 +34,50 @@ class OnboardingScreen extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
               borderRadius:
-              const BorderRadius.vertical(bottom: Radius.circular(30)),
+                  const BorderRadius.vertical(bottom: Radius.circular(30)),
             ),
           ),
-          SizedBox(height: 20.h,),
+          SizedBox(
+            height: 20.h,
+          ),
           SizedBox(
               height: 110.h,
               width: 300.w,
-              child: Image.asset('assets/icons/kem_logo.png',fit: BoxFit.fill,
-
+              child: Image.asset(
+                'assets/icons/kem_logo.png',
+                fit: BoxFit.fill,
               )),
-
-          SizedBox(height: 35.h,),
+          SizedBox(
+            height: 35.h,
+          ),
           Text(
             title,
-            style:  TextStyle(fontSize: 25.sp, fontWeight: FontWeight.bold,color: ColorManager.brownColor),
+            style: TextStyle(
+                fontSize: 25.sp,
+                fontWeight: FontWeight.bold,
+                color: ColorManager.brownColor),
             textAlign: TextAlign.center,
           ),
-           SizedBox(height: 15.h),
+          SizedBox(height: 15.h),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24.0),
             child: Text(
               description,
-              style:  TextStyle(fontSize: 25.sp,color: ColorManager.brownColor),
+              style: TextStyle(fontSize: 25.sp, color: ColorManager.brownColor),
               textAlign: TextAlign.center,
             ),
           ),
-      SizedBox(height: 55.h,),
+          SizedBox(
+            height: 55.h,
+          ),
           InkWell(
               onTap: () {
                 if (index == 1) {
-                  Navigator.push(context,MaterialPageRoute(builder:(context) => LayoutNavBar(),)); // أو استخدم Navigator.push حسب ما تحب
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const LayoutNavBar(),
+                      )); // أو استخدم Navigator.push حسب ما تحب
                 } else {
                   controller.animateToPage(
                     index + 1,
@@ -75,8 +87,12 @@ class OnboardingScreen extends StatelessWidget {
                 }
               },
               child: Padding(
-                padding: const EdgeInsets.only(bottom:30),
-                child: Image.asset("assets/icons/button.png",height: 135.h,width: 135.w,),
+                padding: const EdgeInsets.only(bottom: 30),
+                child: Image.asset(
+                  "assets/icons/button.png",
+                  height: 135.h,
+                  width: 135.w,
+                ),
               ))
         ],
       ),

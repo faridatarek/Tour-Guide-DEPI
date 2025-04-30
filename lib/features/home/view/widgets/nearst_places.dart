@@ -21,7 +21,6 @@ class NearestPlaces extends StatelessWidget {
     'ابي حجاج',
     'تمثالا ممنون',
     'وادي الملوك',
-
   ];
 
   @override
@@ -41,9 +40,21 @@ class NearestPlaces extends StatelessWidget {
               itemCount: images.length,
               itemBuilder: (context, index) {
                 return InkWell(
-                  onTap:() {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const PlaceDetailsScreen()));
-
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => PlaceDetailsScreen(
+                                  name: labels[index],
+                                  image: images[index],
+                                  governorate: 'الأقصر',
+                                  area: 'الكرنك',
+                                  address: 'الكرنك',
+                                  visitingHours: '9:00 AM - 5:00 PM',
+                                  ticketPrice: '100 EGP',
+                                  description:
+                                      'معبد الكرنك هو معبد ضخم يقع في مدينة الأقصر بمصر. يُعتبر واحدًا من أكبر المعابد في العالم، ويعود تاريخه إلى العصور الفرعونية. يتميز بتصميمه المعماري الرائع وزخارفه الجميلة، ويحتوي على مجموعة متنوعة من المعابد والأعمدة والنقوش التي تعكس تاريخ وثقافة مصر القديمة.',
+                                )));
                   },
                   child: Stack(
                     alignment: Alignment.bottomRight,

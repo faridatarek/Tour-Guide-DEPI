@@ -1,74 +1,147 @@
+import 'package:circle_nav_bar/circle_nav_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tour_guide/core/helper/image_paths.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';
-import 'package:tour_guide/core/utils/text_styles.dart';
 import 'package:tour_guide/features/home/view/home_screen.dart';
-import 'package:tour_guide/features/layout/view/widgets/bottom_nav_bar_container.dart';
+import 'package:tour_guide/features/navBar/settings/view/settings_screen.dart';
 import 'package:tour_guide/features/notifications/view/notifications_screen.dart';
 import 'package:tour_guide/features/places/view/places_screen.dart';
+import 'package:tour_guide/features/saved/view/saved_screen.dart';
 
-class LayoutScreen extends StatefulWidget {
-  const LayoutScreen({super.key});
+class LayoutNavBar extends StatefulWidget {
+  const LayoutNavBar({super.key});
 
   @override
-  State<LayoutScreen> createState() => _LayoutScreenState();
+  State<LayoutNavBar> createState() => _LayoutNavBarState();
 }
 
-class _LayoutScreenState extends State<LayoutScreen> {
-  int currentIndex = 0;
-
-  final List<Widget> screens = [
-    const AllPlacesScreen(),
-    const HomeScreen(),
-    const AllPlacesScreen(),
-    // const VisitsScreen(),
-    // const FavoritesScreen(),
+class _LayoutNavBarState extends State<LayoutNavBar> {
+  List<Widget> PagesName = [
+    const SettingsScreen(),
     const NotificationsScreen(),
-    const AllPlacesScreen(),
-    // const MoreScreen(),
+    const VisitsScreen(),
+    const HomeScreen(),
   ];
-
-  final List<String> icons = [
-    ImagePaths.homeIconPath,
-    ImagePaths.savedIconPath,
-    ImagePaths.favNavIconPath,
-    ImagePaths.notificationIconPath,
-    ImagePaths.moreIconPath,
-  ];
-
-  final List<String> labels = [
-    'الرئيسية',
-    'زياراتي',
-    'المفضلة',
-    'الاشعارات',
-    'المزيد',
-  ];
-
+  int currentIndex = 3;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorManager.lightBeigeColor,
-      appBar: AppBar(
-        backgroundColor: ColorManager.lightBeigeColor,
-        title: Text(
-          labels[currentIndex],
-          style: TextStyles.font18LightBrown2ExtraBold,
+        bottomNavigationBar: CircleNavBar(
+          iconCurve: Curves.bounceInOut,
+
+          activeIndex: currentIndex,
+          onTap: (index) {
+            setState(() {
+              currentIndex = index;
+            });
+          },
+          activeIcons: [
+            Icon(Icons.settings,
+                color: ColorManager.primaryColor, size: 35), // index 3
+            Icon(Icons.notifications,
+                color: ColorManager.primaryColor, size: 35), // index 2
+            Icon(Icons.bookmark_added,
+                color: ColorManager.primaryColor, size: 35), // index 1
+            Center(
+                child: Image.asset(ImagePaths.logoPath,
+                    width: 70.w, height: 50.h)), // index 0
+          ],
+          inactiveIcons: [
+            Padding(
+              padding: EdgeInsets.only(left: 10.w, right: 6.w, top: 19.h),
+              child: Column(
+                children: [
+                  Icon(Icons.settings,
+                      color: ColorManager.brownColor, size: 30),
+                  Text("الاعدادات",
+                      style: TextStyle(
+                          color: ColorManager.brownColor,
+                          fontSize: 13.sp,
+                          fontWeight: FontWeight.bold)),
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 10.w, right: 6.w, top: 16.h),
+              child: Column(
+                children: [
+                  Icon(Icons.notifications,
+                      color: ColorManager.brownColor, size: 30),
+                  Text("الاشعارات",
+                      style: TextStyle(
+                          color: ColorManager.brownColor,
+                          fontSize: 13.sp,
+                          fontWeight: FontWeight.bold)),
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 10.w, right: 6.w, top: 18.h),
+              child: Column(
+                children: [
+                  Icon(Icons.bookmark_added,
+                      color: ColorManager.brownColor, size: 30),
+                  Text("زياراتي",
+                      style: TextStyle(
+                          color: ColorManager.brownColor,
+                          fontSize: 13.sp,
+                          fontWeight: FontWeight.bold)),
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 10.w, right: 6.w, top: 15.h),
+              child: Column(
+                children: [
+                  Center(
+                      child: Image.asset(ImagePaths.logoPath,
+                          width: 55.w, height: 40.h)),
+                  Text("الرئيسية",
+                      style: TextStyle(
+                          color: ColorManager.brownColor,
+                          fontSize: 13.sp,
+                          fontWeight: FontWeight.bold)),
+                ],
+              ),
+            ),
+          ],
+
+          color: Colors.red,
+          circleColor: Colors.red,
+          height: 75,
+          circleWidth: 60,
+
+          // tabCurve: ,
+          padding: EdgeInsets.only(left: 10.w, right: 10.w, bottom: 20),
+          cornerRadius: const BorderRadius.only(
+            topLeft: Radius.circular(2),
+            topRight: Radius.circular(2),
+            bottomRight: Radius.circular(20),
+            bottomLeft: Radius.circular(20),
+          ),
+
+          circleShadowColor: ColorManager.primaryColor,
+
+          elevation: 10,
+          gradient: LinearGradient(
+            colors: [
+              ColorManager.beigeColor.withOpacity(0.5),
+              ColorManager.primaryColor.withOpacity(0.5),
+            ],
+          ),
+          circleGradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              ColorManager.primaryColor,
+              ColorManager.primaryColor,
+              ColorManager.brown2Color,
+              ColorManager.brown2Color,
+              ColorManager.brown2Color
+            ],
+          ),
         ),
-        centerTitle: true,
-        leading: const SizedBox.shrink(),
-      ),
-      body: IndexedStack(
-        index: currentIndex,
-        children: screens,
-      ),
-      bottomNavigationBar: CustomCurvedNavigationBar(
-        currentIndex: currentIndex,
-        onTap: (index) => setState(() => currentIndex = index),
-        icons: icons,
-        labels: labels,
-        activeColor: ColorManager.brown2Color,
-        inactiveColor: Colors.grey[700]!,
-      ),
-    );
+        body: Center(child: PagesName[currentIndex]));
   }
 }
