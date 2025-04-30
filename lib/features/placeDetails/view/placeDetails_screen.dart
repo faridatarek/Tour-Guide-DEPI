@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tour_guide/core/helper/image_paths.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';
+import 'package:tour_guide/core/utils/font_weight_helper.dart';
 import 'package:tour_guide/core/utils/text_styles.dart';
 
 import '../../../core/helper/spacing.dart';
@@ -293,8 +294,8 @@ class _PlaceDetailsScreenState extends State<PlaceDetailsScreen> {
                             Text("الموقع علي الخريطة",
                                 style: TextStyles.font22Brown2ExtraBold),
                             SizedBox(
-                              width: 30.w,
-                              height: 30.h,
+                              width: 35.w,
+                              height: 35.h,
                               child: Image.asset(ImagePaths.logoPath),
                             ),
                           ],
@@ -333,8 +334,8 @@ class _PlaceDetailsScreenState extends State<PlaceDetailsScreen> {
                             Text("صور للمكان",
                                 style: TextStyles.font22Brown2ExtraBold),
                             SizedBox(
-                              width: 30.w,
-                              height: 30.h,
+                              width: 35.w,
+                              height: 35.h,
                               child: Image.asset(ImagePaths.logoPath),
                             ),
                           ],
@@ -408,7 +409,6 @@ class _PlaceDetailsScreenState extends State<PlaceDetailsScreen> {
                                   color: selectedTab == "زياراتي"
                                       ? ColorManager.lightBeigeColor
                                       : ColorManager.darkOrangeColor,
-                                  fontSize: 25,
                                 ),
                               ),
                               SizedBox(width: 5.w),
@@ -446,7 +446,6 @@ class _PlaceDetailsScreenState extends State<PlaceDetailsScreen> {
                                   color: selectedTab == "مفضلة"
                                       ? ColorManager.lightBeigeColor
                                       : ColorManager.darkOrangeColor,
-                                  fontSize: 25,
                                 ),
                               ),
                               SizedBox(width: 5.w),

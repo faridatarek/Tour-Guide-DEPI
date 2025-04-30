@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:lottie/lottie.dart';
-import 'package:tour_guide/core/helper/image_paths.dart';
 import 'package:tour_guide/core/helper/spacing.dart';
 import 'package:tour_guide/core/routes/app_routes.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';

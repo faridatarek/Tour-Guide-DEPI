@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tour_guide/core/helper/image_paths.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';
+import 'package:tour_guide/core/utils/text_styles.dart';
 
-class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
+class CustomAppbar extends StatelessWidget {
   final String? title;
   final VoidCallback? onBackPressed;
 
@@ -22,9 +23,9 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
           ),
         ),
         Positioned(
-          top: MediaQuery.of(context).padding.top + 3,
-          left: 10,
-          right: 10,
+          top: MediaQuery.of(context).padding.top + 20,
+          left: 16,
+          right: 16,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -34,24 +35,21 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
                   child: title != null
                       ? Text(
                           title!,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 45.sp,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'ArbFonts',
-                          ),
+                          style: TextStyles.font20whiteExtraBold,
                           textAlign: TextAlign.center,
                         )
-                      : const SizedBox.shrink(),
+                      : SizedBox.shrink(),
                 ),
               ),
               if (onBackPressed != null)
                 GestureDetector(
-                  onTap: onBackPressed,
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
                   child: Image.asset(
                     ImagePaths.backArrow,
-                    height: 40.h,
-                    width: 40.w,
+                    height: 35.h,
+                    width: 35.w,
                   ),
                 )
               else

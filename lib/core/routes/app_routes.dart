@@ -1,6 +1,9 @@
 class AppRoutes {
   static const String placeDetailsScreen = '/placeDetails';
-  // static const String homeScreen = '/home';
+  //home
+  static const String home = '/home';
+
+  //all Places
   static const String allPlacesScreen = '/allPlaces';
   static const String wishVisitScreen = '/wishVisit';
   static const String favouriteScreen = '/favourite';
@@ -12,4 +15,5 @@ class AppRoutes {
   //splash
   static const String LogoScreen = "/LogoScreen";
   static const String test = "/test";
+  static const String onboarding = "/onboarding";
 }
