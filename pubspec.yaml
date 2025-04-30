@@ -42,6 +42,7 @@ dependencies:
   circle_nav_bar:
   carousel_slider:
   intl:
+  awesome_notifications: ^0.10.1
 
 
 dev_dependencies:
