@@ -10,7 +10,7 @@ import 'package:tour_guide/features/places/view/places_screen.dart';
 
 
 
-class test extends StatefulWidget {
+/*class test extends StatefulWidget {
   const test({super.key});
 
   @override
@@ -132,5 +132,5 @@ class _testState extends State<test> {
     );
 
   }
-}
+}*/
 

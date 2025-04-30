@@ -42,7 +42,9 @@ dependencies:
   circle_nav_bar:
   carousel_slider:
   intl:
-
+  supabase_flutter:
+  shared_preferences:
+  location:
 
 dev_dependencies:
   flutter_test:

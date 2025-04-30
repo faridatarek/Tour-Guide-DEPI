@@ -7,7 +7,7 @@ import 'package:tour_guide/features/notifications/view/notifications_screen.dart
 import 'package:tour_guide/features/places/view/places_screen.dart';
 import 'bottom_nav_container.dart';
 
-class LayoutScreen extends StatefulWidget {
+/*class LayoutScreen extends StatefulWidget {
   const LayoutScreen({super.key});
 
   @override
@@ -71,4 +71,4 @@ class _LayoutScreenState extends State<LayoutScreen> {
       ),
     );
   }
-}
+}*/

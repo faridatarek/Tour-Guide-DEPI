@@ -18,14 +18,7 @@ Route manageRoutes(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (_) => const LayoutNavBar(),
       );
-    case AppRoutes.placeDetailsScreen:
-      return MaterialPageRoute(
-        builder: (_) => const PlaceDetailsScreen(),
-      );
-    case AppRoutes.test:
-      return MaterialPageRoute(
-        builder: (_) => const test(),
-      );
+
     case AppRoutes.LogoScreen:
       return MaterialPageRoute(
         builder: (_) => const LogoScreen(),
@@ -34,10 +27,7 @@ Route manageRoutes(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (_) => GuidePager(),
       );
-    case AppRoutes.allPlacesScreen:
-      return MaterialPageRoute(
-        builder: (_) => const AllPlacesScreen(),
-      );
+
     case AppRoutes.home:
       return MaterialPageRoute(
         builder: (_) => const HomeScreen(),

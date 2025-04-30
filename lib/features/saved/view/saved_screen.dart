@@ -130,7 +130,7 @@ class _VisitsScreenState extends State<VisitsScreen>
             children: [
               Icon(icon, color: ColorManager.brownColor),
               const SizedBox(width: 6),
-              Text(title, style: const TextStyle(color: Colors.black)),
+              Text(title, style: TextStyles.font14BrownBold.copyWith(fontSize: 20.sp)),
             ],
           ),
         ),

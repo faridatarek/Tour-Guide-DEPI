@@ -1,92 +1,164 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:location/location.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';
-import 'package:tour_guide/core/utils/text_styles.dart';
+import 'package:tour_guide/features/home/data/models/place_model.dart';
+import 'dart:math'as math;
 import 'package:tour_guide/features/placeDetails/view/placeDetails_screen.dart';
 
-class NearestPlaces extends StatelessWidget {
-  NearestPlaces({super.key});
 
-  final List<String> images = [
-    'https://www.sfari.com/wp-content/uploads/2023/04/%D8%A7%D9%81%D8%B6%D9%84-%D8%A7%D9%86%D8%B4%D8%B7%D8%A9-%D8%B9%D9%86%D8%AF-%D8%B2%D9%8A%D8%A7%D8%B1%D8%A9-%D9%85%D8%B9%D8%A8%D8%AF-%D8%A7%D9%84%D8%A7%D9%82%D8%B5%D8%B1-1.jpg',
-    'https://www.ootlah.com/wp-content/uploads/2020/06/luxor.jpg',
-    'https://egyptiangeographic.com/uploads/files/egyptiangeographic.com_1605356917_1.jpg',
-    'https://i.pinimg.com/originals/c4/b0/e9/c4b0e964300240dd809b34bc358d9a29.jpg',
-    'https://www.osiristours.com/wp-content/uploads/2016/11/valleyofqueens17.jpg',
-  ];
 
-  final List<String> labels = [
-    'معبد لأقصر',
-    'معبد الكرنك',
-    'ابي حجاج',
-    'تمثالا ممنون',
-    'وادي الملوك',
 
-  ];
+class NearestPlaces extends StatefulWidget {
+  const NearestPlaces({super.key});
+
+  @override
+  State<NearestPlaces> createState() => _NearestPlacesState();
+}
+
+class _NearestPlacesState extends State<NearestPlaces> {
+  List<Place> nearestPlaces = [];
+
+  @override
+  void initState() {
+    super.initState();
+    getNearestPlaces();
+  }
+
+  Future<void> getNearestPlaces() async {
+    Location location = Location();
+
+    bool serviceEnabled = await location.serviceEnabled();
+    if (!serviceEnabled) {
+      serviceEnabled = await location.requestService();
+      if (!serviceEnabled) return;
+    }
+
+    PermissionStatus permissionGranted = await location.hasPermission();
+    if (permissionGranted == PermissionStatus.denied) {
+      permissionGranted = await location.requestPermission();
+      if (permissionGranted != PermissionStatus.granted) return;
+    }
+
+    LocationData locationData = await location.getLocation();
+
+    final response = await Supabase.instance.client
+        .from('places')
+        .select('name, images, lat, long, gov, region, address, ticket_price, visit_times, description');
+
+    List<Map<String, dynamic>> allPlaces =
+    List<Map<String, dynamic>>.from(response);
+
+    List<Place> placesWithDistance = allPlaces.map((place) {
+      double lat = double.tryParse(place['lat'].toString()) ?? 0.0;
+      double lon = double.tryParse(place['long'].toString()) ?? 0.0;
+
+      double distance = calculateDistance(
+        locationData.latitude!,
+        locationData.longitude!,
+        lat,
+        lon,
+      );
+
+      return Place.fromJson({
+        ...place,
+        'distance': distance,
+      });
+    }).toList();
+
+    placesWithDistance.sort((a, b) => a.distance.compareTo(b.distance));
+
+    setState(() {
+      nearestPlaces = placesWithDistance.take(5).toList();
+    });
+  }
+
+  double calculateDistance(lat1, lon1, lat2, lon2) {
+    const p = 0.017453292519943295;
+    final a = 0.5 -
+        math.cos((lat2 - lat1) * p) / 2 +
+        math.cos(lat1 * p) *
+            math.cos(lat2 * p) *
+            (1 - math.cos((lon2 - lon1) * p)) / 2;
+    return 12742 * math.asin(math.sqrt(a));
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        right: 10.w,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: 220.h,
-            child: ListView.separated(
-              separatorBuilder: (context, index) => SizedBox(width: 16.w),
-              scrollDirection: Axis.horizontal,
-              itemCount: images.length,
-              itemBuilder: (context, index) {
-                return InkWell(
-                  onTap:() {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const PlaceDetailsScreen()));
-
-                  },
-                  child: Stack(
-                    alignment: Alignment.bottomRight,
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(12),
-                        child: Image.network(
-                          images[index],
-                          height: 220.h,
-                          width: 125.w,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      Container(
-                        width: 100.w,
-                        height: 50.h,
-                        decoration: BoxDecoration(
-                          color: ColorManager.brownColor.withAlpha(180),
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(12),
-                            bottomRight: Radius.circular(12),
-                          ),
-                        ),
-                        child: Center(
-                          child: Padding(
-                            padding: const EdgeInsets.only(right: 8.0),
-                            child: Text(
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                              labels[index],
-                              style: TextStyles.font14whiteExtraBold,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+    return nearestPlaces.isEmpty
+        ? const Center(child: CircularProgressIndicator(color: ColorManager.darkOrangeColor,))
+        : SizedBox(
+      height: 220.h,
+      child: ListView.separated(
+        separatorBuilder: (context, index) => SizedBox(width: 16.w),
+        scrollDirection: Axis.horizontal,
+        itemCount: nearestPlaces.length,
+        itemBuilder: (context, index) {
+          final place = nearestPlaces[index];
+          return InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>
+                      PlaceDetailsScreen(place: place),
+                ),
+              );
+            },
+            child: Stack(
+              alignment: Alignment.bottomRight,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: Image.network(
+                    place.images.isNotEmpty
+                        ? place.images[0]
+                        : 'https://via.placeholder.com/125x220',
+                    height: 220.h,
+                    width: 125.w,
+                    fit: BoxFit.cover,
                   ),
-                );
-              },
+                ),
+                Container(
+                  width: 100.w,
+                  height: 50.h,
+                  decoration: BoxDecoration(
+                    color: Colors.brown.withAlpha(180),
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(12),
+                      bottomRight: Radius.circular(12),
+                    ),
+                  ),
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 8.0),
+                      child: Text(
+                        place.name,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ),
-        ],
+          );
+        },
       ),
     );
   }
 }
+
+
+
+
+
+
+
