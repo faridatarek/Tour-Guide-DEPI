@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive/hive.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';
 import 'package:tour_guide/core/utils/text_styles.dart';
+import 'package:tour_guide/features/saved/data/models/visit_model.dart';
 
 class NotificationBodyScreen extends StatelessWidget {
   const NotificationBodyScreen({super.key});
@@ -99,3 +102,5 @@ class NotificationBodyScreen extends StatelessWidget {
     );
   }
 }
+
+

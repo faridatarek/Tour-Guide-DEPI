@@ -6,8 +6,8 @@ import 'package:tour_guide/core/utils/text_styles.dart';
 import 'package:tour_guide/features/home/data/models/place_model.dart';
 import 'package:tour_guide/features/placeDetails/view/widgets/customRichTxt_widget.dart';
 import 'package:tour_guide/features/placeDetails/view/widgets/saveButton_widget.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../core/helper/spacing.dart';
-
 
 
 class PlaceDetailsScreen extends StatelessWidget {
@@ -101,22 +101,30 @@ class PlaceDetailsScreen extends StatelessWidget {
                             ),
                           ],
                         ),SizedBox(height: 12.h,),
-                        Center(
-                          child: Container(
-                            height: 200.h,width: 370.w,decoration: BoxDecoration(color: ColorManager.primaryColor,borderRadius: BorderRadius.circular(12.r)),
-                            child: Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Image.asset(ImagePaths.elKarnaklocation),
-                                )   ,
-                                SizedBox(
-                                    width: 120.w,
-                                    height: 100.h,
-                                    child: Image.asset(ImagePaths.location)),
+                        InkWell(
+                          onTap: (){
+                            if (place.lat != null && place.lon != null) {
+                              final String mapsUrl = "https://www.google.com/maps?q=${place.lat},${place.lon}";
+                              launchUrl(Uri.parse(mapsUrl));
+                            }
+                          },
+                          child: Center(
+                            child: Container(
+                              height: 200.h,width: 370.w,decoration: BoxDecoration(color: ColorManager.primaryColor,borderRadius: BorderRadius.circular(12.r)),
+                              child: Row(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Image.asset(ImagePaths.elKarnaklocation),
+                                  )   ,
+                                  SizedBox(
+                                      width: 120.w,
+                                      height: 100.h,
+                                      child: Image.asset(ImagePaths.location)),
 
 
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -167,7 +175,7 @@ class PlaceDetailsScreen extends StatelessWidget {
             bottom: 20,
             right: 40,
             left: 40,
-            child:SavebuttonWidget(),
+            child:SavebuttonWidget(place:place ),
           )
         ],
       ),
@@ -176,6 +184,5 @@ class PlaceDetailsScreen extends StatelessWidget {
     );
   }
 }
-
 
 

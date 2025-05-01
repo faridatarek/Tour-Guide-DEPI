@@ -5,9 +5,9 @@ import 'package:tour_guide/core/helper/image_paths.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';
 import 'package:tour_guide/core/utils/text_styles.dart';
 import 'package:tour_guide/features/home/view/home_screen.dart';
-import 'package:tour_guide/features/navBar/settings/view/settings_screen.dart';
 import 'package:tour_guide/features/notifications/view/notifications_screen.dart';
 import 'package:tour_guide/features/saved/view/saved_screen.dart';
+import 'package:tour_guide/features/settings/view/settings_screen.dart';
 
 class LayoutNavBar extends StatefulWidget {
   const LayoutNavBar({super.key});

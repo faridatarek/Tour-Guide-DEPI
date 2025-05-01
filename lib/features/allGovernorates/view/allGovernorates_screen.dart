@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';
 import 'package:tour_guide/features/home/data/models/gov_model.dart';
 import 'package:tour_guide/features/home/view/widgets/promote_places.dart';
-import 'package:tour_guide/features/layout/view/widgets/custom_appBar.dart';
+import 'package:tour_guide/core/widgets/custom_appBar.dart';
 import 'package:tour_guide/features/places/view/places_screen.dart';
 
 class allGovernorates_screen extends StatelessWidget {

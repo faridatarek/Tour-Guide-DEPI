@@ -21,7 +21,6 @@ class FamousPlaces extends StatelessWidget {
     'واحة سيوة',
     'جزيرة الفنتين',
 
-
   ];
 
   @override

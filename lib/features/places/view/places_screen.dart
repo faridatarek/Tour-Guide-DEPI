@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tour_guide/core/helper/image_paths.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';
 import 'package:tour_guide/core/utils/text_styles.dart';
-import 'package:tour_guide/features/layout/view/widgets/custom_appBar.dart';
+import 'package:tour_guide/core/widgets/custom_appBar.dart';
 import 'package:tour_guide/features/places/view/widgets/place_list_view_screen.dart';
 
 

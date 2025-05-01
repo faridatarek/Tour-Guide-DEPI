@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tour_guide/features/layout/view/widgets/custom_appBar.dart';
+import 'package:tour_guide/core/widgets/custom_appBar.dart';
 
 import 'package:tour_guide/features/notifications/view/widgets/notification_body_screen.dart';
 

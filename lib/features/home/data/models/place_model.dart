@@ -12,7 +12,6 @@ class Place {
   final double lat;
   final double lon;
   final double distance;
-
   Place({
     required this.id,
     required this.name,
@@ -28,7 +27,6 @@ class Place {
     required this.lon,
     required this.distance,
   });
-
   factory Place.fromJson(Map<String, dynamic> json) {
     return Place(
       id: json['id'] ?? '',

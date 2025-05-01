@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tour_guide/core/utils/text_styles.dart';
-import 'package:tour_guide/features/layout/view/widgets/custom_appBar.dart';
+import 'package:tour_guide/core/widgets/custom_appBar.dart';
 
 class support extends StatelessWidget {
   const support({super.key});
