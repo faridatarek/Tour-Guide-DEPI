@@ -1,107 +1,105 @@
 import 'package:flutter/material.dart';
-import 'package:tour_guide/core/helper/spacing.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:tour_guide/core/routes/app_routes.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';
 import 'package:tour_guide/core/utils/text_styles.dart';
+import 'package:tour_guide/features/home/data/models/place_model.dart';
 import 'package:tour_guide/features/placeDetails/view/placeDetails_screen.dart';
 
-class PlaceListViewScreen extends StatefulWidget {
-  PlaceListViewScreen({super.key});
+class PlaceListViewScreen extends StatelessWidget {
+  final String governorate;
 
-  @override
-  State<PlaceListViewScreen> createState() => _PlaceListViewScreenState();
-}
+  const PlaceListViewScreen({super.key, required this.governorate});
 
-class _PlaceListViewScreenState extends State<PlaceListViewScreen> {
-  final List<String> networkImagesUrl = const [
-    'https://th.bing.com/th/id/R.3875c252f986a546da9fc82c0e33d26e?rik=yEhFTAiyjfzzeQ&pid=ImgRaw&r=0',
-    'https://egyptiangeographic.com/uploads/files/egyptiangeographic.com_1605356917_1.jpg',
-    'https://th.bing.com/th/id/R.b6da499dbdb8db4c99e0e3f085fc44dd?rik=2BF6UjFMrvh0UA&pid=ImgRaw&r=0'
-        'https://th.bing.com/th/id/OIP.P--0-iz2JO90jEXmoIetpAHaE8?w=6016&h=4016&rs=1&pid=ImgDetMain',
-    'https://i.pinimg.com/originals/c4/b0/e9/c4b0e964300240dd809b34bc358d9a29.jpg',
-    'https://www.osiristours.com/wp-content/uploads/2016/11/valleyofqueens17.jpg',
-    'https://images.memphistours.com/large/772270975_Luxor%20temple.jpg',
-    'https://th.bing.com/th/id/OIP.RdjyfXTMnsZbm6WICzVSSAHaFj?rs=1&pid=ImgDetMain'
-        'https://i.pinimg.com/736x/95/fb/92/95fb924144f069528f7882bdc7f9364d.jpg',
-    'https://yallabook.com/guide/uploade/files/151013_920_4c8ef.jpg',
-    'https://th.bing.com/th/id/R.89e58aee356381f08c58324b110c4490?rik=eb015hpl82bZDQ&riu=http%3a%2f%2fwww.wonderfultravels.nl%2fFotos%2fRegios%2fMidden_Oosten%2fLuxor%2fRamesseum%2f201119529.jpg&ehk=qYduqlJrXoDRQ5QIXo%2b9%2f7S9KMHqiFmLq5g6p6NkjDk%3d&risl=&pid=ImgRaw&r=0'
-  ];
+  Future<List<Map<String, dynamic>>> fetchPlacesForGovernorate() async {
+    final response = await Supabase.instance.client
+        .from('places')
+        .select()
+        .eq('gov', governorate);
 
-  final List<String> titles = const [
-    'معبد الكرنك ',
-    'مسجد أبي الحجاج ',
-    'دير مارجرجس ',
-    'مقابر النبلاء',
-    'تمثالا ممنون ',
-    'وادي الملوك ',
-    'معبد الأقصر',
-    'دير الشهداء (دير المدينة)',
-    'معبد الملكة حتشبسوت',
-    'معبد مدينة هابو ',
-    'معبد الملك رمسيس ',
-    '',
-  ];
-
-  bool isSelected = false;
+    return List<Map<String, dynamic>>.from(response);
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.separated(
-          separatorBuilder: (context, index) => verticalSpace(10),
-          itemCount: networkImagesUrl.length,
+    return FutureBuilder<List<Map<String, dynamic>>>(
+      future: fetchPlacesForGovernorate(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(
+              child: CircularProgressIndicator(
+            color: ColorManager.darkOrangeColor,
+          ));
+        } else if (snapshot.hasError) {
+          return Center(child: Text('خطأ: ${snapshot.error}'));
+        } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+          return const Center(child: Text('لا توجد أماكن متاحة'));
+        }
+
+        final places = snapshot.data!;
+
+        return ListView.separated(
+          itemCount: places.length,
+          separatorBuilder: (_, __) => const SizedBox(height: 10),
           itemBuilder: (context, index) {
-            return Container(
-              decoration: BoxDecoration(
-                color: ColorManager.lightBeigeColor,
-                borderRadius: BorderRadius.circular(16),
-              ),
-              margin: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
-              // padding: const EdgeInsets.all(4.0),
-              child: Stack(
-                alignment: Alignment.centerRight,
-                children: [
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => PlaceDetailsScreen(
-                                    name: titles[index],
-                                    image: networkImagesUrl[index],
-                                    governorate: 'Luxor',
-                                    area: 'Luxor',
-                                    address: 'Luxor',
-                                    visitingHours: '9:00 AM - 5:00 PM',
-                                    ticketPrice: '100 EGP',
-                                    description:
-                                        'This is a description of the place.',
-                                  )));
-                    },
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(16),
-                      child: Image.network(
-                        networkImagesUrl[index],
-                        fit: BoxFit.cover,
-                        width: double.infinity,
-                        height: 200,
+            final place = places[index];
+            return InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PlaceDetailsScreen(
+                      place: Place(
+                        id: place['id'],
+                        availableForVisit: place['available_for_visit'],
+                        lat: place['lat'],
+                        lon: place['lon'],
+                        distance: place['distance'] ?? 0.0,
+                        name: place['name'],
+                        governorate: place['gov'],
+                        region: place['area'],
+                        address: place['address'],
+                        visitingHours: place['visiting_hours'],
+                        ticketPrice: place['ticket_price'],
+                        description: place['description'],
+                        images: List<String>.from(place['images']),
                       ),
                     ),
                   ),
-                  Positioned(
-                    bottom: 7,
-                    right: 0,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 8.0, vertical: 8.0),
-                      child: Text(titles[index],
-                          style: TextStyles.font22whiteExtraBold),
+                );
+              },
+              child: Container(
+                margin: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: ColorManager.lightBeigeColor,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Stack(
+                  alignment: Alignment.bottomRight,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: Image.network(
+                        place['images'][0],
+                        height: 200,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Text(
+                        place['name'],
+                        style: TextStyles.font22whiteExtraBold,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             );
-          }),
+          },
+        );
+      },
     );
   }
 }

@@ -1,18 +1,19 @@
 import 'dart:async';
+
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:tour_guide/core/helper/image_paths.dart';
 import 'package:tour_guide/features/placeDetails/view/placeDetails_screen.dart';
 import 'package:tour_guide/features/splash/view/onboarding_screen.dart';
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+class LogoScreen extends StatefulWidget {
+  const LogoScreen({Key? key}) : super(key: key);
 
   @override
-  State<SplashScreen> createState() => _LogoScreenState();
+  State<LogoScreen> createState() => _LogoScreenState();
 }
 
-class _LogoScreenState extends State<SplashScreen> {
+class _LogoScreenState extends State<LogoScreen> {
   @override
   void initState() {
     super.initState();
@@ -36,7 +37,7 @@ class _LogoScreenState extends State<SplashScreen> {
               fit: BoxFit.fitHeight,
             ),
             FadeInDown(
-                duration: const Duration(seconds: 3),
+                duration: Duration(seconds: 3),
                 child: Image.asset(
                   ImagePaths.mainlogo,
                 )),
