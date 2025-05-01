@@ -4,13 +4,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tour_guide/core/helper/image_paths.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';
-import 'package:tour_guide/features/layout/view/widgets/custom_appBar.dart';
+import 'package:tour_guide/core/widgets/custom_appBar.dart';
 import 'package:tour_guide/features/placeDetails/view/placeDetails_screen.dart';
 import 'package:tour_guide/features/places/view/places_screen.dart';
 
 
 
-class test extends StatefulWidget {
+/*class test extends StatefulWidget {
   const test({super.key});
 
   @override
@@ -132,5 +132,5 @@ class _testState extends State<test> {
     );
 
   }
-}
+}*/
 

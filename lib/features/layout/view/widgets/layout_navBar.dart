@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tour_guide/core/helper/image_paths.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';
+import 'package:tour_guide/core/utils/text_styles.dart';
 import 'package:tour_guide/features/home/view/home_screen.dart';
-import 'package:tour_guide/features/navBar/settings/view/settings_screen.dart';
 import 'package:tour_guide/features/notifications/view/notifications_screen.dart';
-import 'package:tour_guide/features/places/view/places_screen.dart';
 import 'package:tour_guide/features/saved/view/saved_screen.dart';
+import 'package:tour_guide/features/settings/view/settings_screen.dart';
 
 class LayoutNavBar extends StatefulWidget {
   const LayoutNavBar({super.key});
@@ -49,40 +49,40 @@ class _LayoutNavBarState extends State<LayoutNavBar> {
           ],
           inactiveIcons:  [
             Padding(
-              padding:  EdgeInsets.only(left:10.w,right: 6.w,top: 19.h),
+              padding:  EdgeInsets.only(left:10.w,right: 6.w,top: 5.h),
               child: Column(
                 children: [
                   Icon(Icons.settings,color:ColorManager.brownColor,size: 30),
-                  Text("الاعدادات",style: TextStyle(color:ColorManager.brownColor,fontSize: 13.sp,fontWeight: FontWeight.bold)),
+                  Text("الاعدادات",style:TextStyles.font14BrownBold.copyWith(fontSize: 20.sp)),
                 ],
               ),
             ),
             Padding(
-              padding:  EdgeInsets.only(left:10.w,right: 6.w,top: 16.h),
+              padding:  EdgeInsets.only(left:10.w,right: 6.w,top: 5.h),
               child: Column(
                 children: [
                   Icon(Icons.notifications ,color: ColorManager.brownColor,size: 30),
-                  Text("الاشعارات",style: TextStyle(color:ColorManager.brownColor,fontSize: 13.sp,fontWeight: FontWeight.bold)),
+                  Text("الاشعارات",style: TextStyles.font14BrownBold.copyWith(fontSize: 20.sp)),
                 ],
               ),
             ),
-            Padding( padding:  EdgeInsets.only(left:10.w,right: 6.w,top: 18.h),
+            Padding( padding:  EdgeInsets.only(left:10.w,right: 6.w,top: 5.h),
               child: Column(
                 children: [
                   Icon(Icons.bookmark_added,color: ColorManager.brownColor,size: 30 ),
-                  Text("زياراتي",style: TextStyle(color:ColorManager.brownColor,fontSize: 13.sp,fontWeight: FontWeight.bold)),
+                  Text("زياراتي",style: TextStyles.font14BrownBold.copyWith(fontSize: 20.sp)),
 
                 ],
               ),
             ),
             Padding(
-              padding:  EdgeInsets.only(left:10.w,right: 6.w,top: 15.h),
+              padding:  EdgeInsets.only(left:10.w,right: 6.w,top: 5.h),
               child: Column(
 
                 children: [
 
-                  Center(child: Image.asset(ImagePaths.logoPath,width: 55.w,height: 40.h)),
-                  Text("الرئيسية",style: TextStyle(color:ColorManager.brownColor,fontSize: 13.sp,fontWeight: FontWeight.bold)),
+                  Center(child: Image.asset(ImagePaths.logoPath,width: 55.w,height: 35.h)),
+                  Text("الرئيسية",style:TextStyles.font14BrownBold.copyWith(fontSize: 20.sp)),
                 ],
               ),
             ),

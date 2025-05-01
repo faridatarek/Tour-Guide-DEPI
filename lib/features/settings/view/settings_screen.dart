@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';
 import 'package:tour_guide/core/utils/text_styles.dart';
-import 'package:tour_guide/features/navBar/settings/%D9%90About_us.dart';
-import 'package:tour_guide/features/navBar/settings/view/Terms_And_Conditions.dart';
-import 'package:tour_guide/features/navBar/settings/view/support.dart';
+import 'package:tour_guide/features/settings/%D9%90About_us.dart';
+import 'package:tour_guide/features/settings/view/Terms_And_Conditions.dart';
+import 'package:tour_guide/features/settings/view/support.dart';
 
-import '../../../layout/view/widgets/custom_appBar.dart';
+
+import '../../../../core/widgets/custom_appBar.dart';
 
 
 class SettingsScreen extends StatefulWidget {

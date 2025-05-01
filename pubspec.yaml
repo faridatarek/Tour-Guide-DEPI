@@ -42,8 +42,17 @@ dependencies:
   circle_nav_bar:
   carousel_slider:
   intl:
-
-
+  supabase_flutter:
+  shared_preferences:
+  location:
+  hive:
+  hive_flutter:
+  path_provider:
+  build_runner:
+  hive_generator:
+  flutter_local_notifications:
+  timezone:
+  url_launcher:
 dev_dependencies:
   flutter_test:
     sdk: flutter

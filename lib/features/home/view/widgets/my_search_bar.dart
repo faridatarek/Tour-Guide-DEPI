@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:tour_guide/core/utils/text_styles.dart';
 import '../../../../core/utils/color_manager.dart';
 
 class MySearchBar extends StatelessWidget {
@@ -16,7 +16,7 @@ class MySearchBar extends StatelessWidget {
           onChanged: (value) {},
           decoration: InputDecoration(
             hintText: 'ابحث هنا...',
-            hintStyle: const TextStyle(color: ColorManager.brownColor),
+            hintStyle: TextStyles.font14BrownBold.copyWith(fontSize: 20.sp),
             prefixIcon: const Icon(
               Icons.search,
               color: ColorManager.brownColor,
