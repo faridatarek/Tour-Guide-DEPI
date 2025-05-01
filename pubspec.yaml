@@ -45,6 +45,11 @@ dependencies:
   supabase_flutter:
   shared_preferences:
   location:
+  hive:
+  hive_flutter:
+  path_provider:
+  build_runner:
+  hive_generator:
 
 dev_dependencies:
   flutter_test:

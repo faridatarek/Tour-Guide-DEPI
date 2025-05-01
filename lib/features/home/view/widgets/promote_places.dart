@@ -35,7 +35,7 @@ class PromotedPlaces extends StatelessWidget {
       future: fetchGovernorates(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(child: CircularProgressIndicator(color: ColorManager.primaryColor,));
+          return const Center(child: CircularProgressIndicator(color: ColorManager.darkOrangeColor,));
         } else if (snapshot.hasError) {
           return Center(child: Text('Error: \${snapshot.error}'));
         } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
@@ -57,7 +57,7 @@ class PromotedPlaces extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const allGovernorates_screen(),
+                      builder: (context) => AllPlacesScreen(governorate: item.name),
                     ),
                   );
                 },

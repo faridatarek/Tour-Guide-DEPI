@@ -8,9 +8,6 @@ import 'package:tour_guide/features/home/data/models/place_model.dart';
 import 'dart:math'as math;
 import 'package:tour_guide/features/placeDetails/view/placeDetails_screen.dart';
 
-
-
-
 class NearestPlaces extends StatefulWidget {
   const NearestPlaces({super.key});
 

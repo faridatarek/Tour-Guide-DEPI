@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tour_guide/core/utils/color_manager.dart';
 import 'package:tour_guide/core/widgets/layout_navBar.dart';
-import 'package:tour_guide/features/placeDetails/view/placeDetails_screen.dart';
 
 class OnboardingScreen extends StatelessWidget {
   final String imagePath;
@@ -65,7 +64,7 @@ class OnboardingScreen extends StatelessWidget {
           InkWell(
               onTap: () {
                 if (index == 1) {
-                  Navigator.push(context,MaterialPageRoute(builder:(context) => LayoutNavBar(),)); // أو استخدم Navigator.push حسب ما تحب
+                  Navigator.pushReplacement(context,MaterialPageRoute(builder:(context) => LayoutNavBar(),)); // أو استخدم Navigator.push حسب ما تحب
                 } else {
                   controller.animateToPage(
                     index + 1,
@@ -120,3 +119,6 @@ class GuidePager extends StatelessWidget {
     );
   }
 }
+
+
+
